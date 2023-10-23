@@ -9,15 +9,17 @@
 
 <body>
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-  <div id="app"></div>
+  <div id="app">
+  </div>
   <script>
     const vm = Vue.createApp({
       data() {
         return {
-          text: 'Hello Vue'
+          attr: "src",
+          img: 'https://images.unsplash.com/photo-1533738363-b7f9aef128ce?auto=format&fit=crop&q=80&w=1335&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
         };
       },
-      template: `<div v-once v-text="text"></div>`,
+      template: `<img :[attr]="img" v-bind:alt="img">`
     }).mount('#app');
     console.log(vm);
   </script>
